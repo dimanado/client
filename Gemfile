@@ -1,4 +1,5 @@
-# A sample Gemfile
+
 source "https://rubygems.org"
 gem 'eventmachine'
-# gem "rails"
+gem 'em-http-request', :require => 'em-http'
+

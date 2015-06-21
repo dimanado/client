@@ -1,22 +1,16 @@
 require 'rubygems'
 require 'eventmachine'
+require 'json'
 
-class Echo < EventMachine::Connection
-  def post_init
-    puts "Соединение с сервером"
-    #send_data 'Hello'
-  end
-
-  def unbind
-    puts 'Обрыв'
-  end
-
-  def receive_data(data)
-    puts 'Ответ получен'
-    p data
-  end
-end
-
-EventMachine.run {
-  EventMachine::connect '127.0.0.1', 3000, Echo
+EM.run {
+  require 'em-http'
+  URL='http://localhost:3000/index'
+  EventMachine.run {
+    http = EventMachine::HttpRequest.new(URL).post body: {x1: '2', x2: '4',str: '+'}
+    http.errback { p 'Uh oh'; EM.stop }
+    http.callback {
+      p http.response
+      EventMachine.stop
+    }
+  }
 }
