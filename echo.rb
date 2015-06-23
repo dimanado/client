@@ -1,7 +1,15 @@
 require 'rubygems'
 require 'eventmachine'
 require 'json'
+require_relative 'work_file'
 
+ 
+  s = Work_file.read
+  s.each do |g|
+    x1, x2, x3 = g.chomp.split(' ')
+    puts("x1 = #{x1},x2 = #{x2},x3 = #{x3}")
+end
+=begin
 EM.run {
   require 'em-http'
   URL='http://localhost:3000/index'
@@ -14,3 +22,4 @@ EM.run {
     }
   }
 }
+=end
