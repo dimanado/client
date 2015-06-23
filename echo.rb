@@ -17,4 +17,3 @@ class EventM
   end
 end
 
-#EventM.push_request

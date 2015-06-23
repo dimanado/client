@@ -1,0 +1,10 @@
+
+source "https://rubygems.org"
+gem 'eventmachine'
+<<<<<<< HEAD
+gem 'em-http-request'
+# gem "rails"
+=======
+gem 'em-http-request', :require => 'em-http'
+
+>>>>>>> 8af126c3885be1b1dd1fc81bcf93e91694c87dd5
